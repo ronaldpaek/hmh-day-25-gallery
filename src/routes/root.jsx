@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
+import { Outlet } from "react-router-dom";
 
-import { API } from "../constants";
-
-const extractMuseumName = (creditline) => creditline.split(",")[0];
+import { API, DEFAULT_USER } from "../constants";
+import { Navbar } from "../components";
 
 const Root = () => {
   const [paintings, setPaintings] = useState([]);
-  const [imageLoadStatus, setImageLoadStatus] = useState({});
+  const [user, setUser] = useState(DEFAULT_USER);
 
   const fetchPaintings = async () => {
     try {
@@ -23,54 +23,15 @@ const Root = () => {
     }
   };
 
-  const handleImageError = (id) => {
-    setImageLoadStatus((prevStatus) => ({
-      ...prevStatus,
-      [id]: false,
-    }));
-  };
-
   useEffect(() => {
     fetchPaintings();
   }, []);
 
-  useEffect(() => {
-    const initialStatus = {};
-    paintings.forEach((painting) => {
-      initialStatus[painting.id] = true;
-    });
-    setImageLoadStatus(initialStatus);
-  }, [paintings]);
-
   return (
-    <main className="gallery-container">
-      {paintings.length > 0 ? (
-        <>
-          <h1 className="gallery-title">Gallery</h1>
-          <ul className="paintings-list">
-            {paintings.map(
-              (painting) =>
-                imageLoadStatus[painting.id] && (
-                  <li key={painting.id} className="painting-item">
-                    <img
-                      className="painting-image"
-                      src={painting.images[0].baseimageurl}
-                      alt={`${painting.title} - A ${
-                        painting.century ?? "N/A century"
-                      } ${
-                        painting.culture
-                      } photograph from the ${extractMuseumName(
-                        painting.creditline
-                      )}, dated around ${painting.dated ?? "N/A"}.`}
-                      onError={() => handleImageError(painting.id)}
-                    />
-                  </li>
-                )
-            )}
-          </ul>
-        </>
-      ) : null}
-    </main>
+    <>
+      <Navbar user={user} setUser={setUser} />
+      <Outlet context={{ paintings, setUser }} />
+    </>
   );
 };
 
