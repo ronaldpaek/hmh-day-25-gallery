@@ -16,7 +16,7 @@ const Index = () => {
                 <Link to={`paintings/${painting.id}`}>
                   <img
                     className="painting-image"
-                    src={painting.images[0].baseimageurl}
+                    src={painting.primaryimageurl}
                     alt={`${painting.title} - A ${
                       painting.century ?? "N/A century"
                     } ${
