@@ -7,30 +7,23 @@ import {
   Route,
 } from "react-router-dom";
 
-// import App from "./App.jsx";
-// import { Login, Register, Gallery, Painting } from "./components";
-import { Root } from "./routes";
+import Root from "./routes/root";
+import Index from "./routes/index";
+import Login from "./routes/login";
+import Register from "./routes/register";
+import Painting from "./routes/painting";
+import ErrorPage from "./error-page";
 import "./index.css";
 
 const router = createBrowserRouter(
-  //   [
-  //   {
-  //     path: "/",
-  //     element: <App />,
-  //     children: [
-  //       { path: "", element: <Gallery /> },
-  //       { path: "login", element: <Login /> },
-  //       { path: "register", element: <Register /> },
-  //       { path: "paintings/:paintingId", element: <Painting /> },
-  //     ],
-  //   },
-  // ]
   createRoutesFromElements(
-    <Route path="/" element={<Root />}>
-      {/* <Route index element={<Index />} /> */}
-      {/* <Route path="login" element={<Login />} />
-      <Route path="register" element={<Register />} />
-      <Route path="paintings/:paintingId" element={<Painting />} /> */}
+    <Route path="/" element={<Root />} errorElement={<ErrorPage />}>
+      <Route errorElement={<ErrorPage />}>
+        <Route index element={<Index />} />
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
+        <Route path="paintings/:paintingId" element={<Painting />} />
+      </Route>
     </Route>
   )
 );
