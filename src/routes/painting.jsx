@@ -9,7 +9,7 @@ const Painting = () => {
   const painting = paintings.find(
     (painting) => painting.id === Number(paintingId)
   );
-  console.log(Object.keys(painting));
+  
   return (
     <main className="painting-container">
       <h1 className="painting-title">{painting.title}</h1>
