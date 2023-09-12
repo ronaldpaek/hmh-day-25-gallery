@@ -9,7 +9,7 @@ const Painting = () => {
   const painting = paintings.find(
     (painting) => painting.id === Number(paintingId)
   );
-
+  console.log(Object.keys(painting));
   return (
     <main className="painting-container">
       <h1 className="painting-title">{painting.title}</h1>
@@ -19,12 +19,15 @@ const Painting = () => {
         className="painting-image"
       />
       <dl className="painting-details">
-        {artworkDetails.map((detail) => (
-          <div key={detail} className="detail-item">
-            <dt className="detail-term">{detail}</dt>
-            <dd className="detail-description">{painting[detail]}</dd>
-          </div>
-        ))}
+        {artworkDetails.map(
+          (detail) =>
+            painting[detail] && (
+              <div key={detail} className="detail-item">
+                <dt className="detail-term">{detail}</dt>
+                <dd className="detail-description">{painting[detail]}</dd>
+              </div>
+            )
+        )}
       </dl>
     </main>
   );

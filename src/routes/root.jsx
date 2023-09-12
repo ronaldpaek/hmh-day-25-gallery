@@ -17,6 +17,7 @@ const Root = () => {
       const recordsWithImages = records.filter(
         (record) => record.images.length > 0
       );
+      console.log(recordsWithImages)
       setPaintings(recordsWithImages);
     } catch (error) {
       console.error(error);
