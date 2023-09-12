@@ -12,9 +12,9 @@ const Painting = () => {
 
   return (
     <main className="painting-container">
-      <h1 className="painting-title">{painting?.title}</h1>
+      <h1 className="painting-title">{painting.title}</h1>
       <img
-        src={painting.images[0].baseimageurl}
+        src={painting.primaryimageurl}
         alt={painting.title}
         className="painting-image"
       />
