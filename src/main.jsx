@@ -7,11 +7,7 @@ import {
   Route,
 } from "react-router-dom";
 
-import Root from "./routes/root";
-import Index from "./routes/index";
-import Login from "./routes/login";
-import Register from "./routes/register";
-import Painting from "./routes/painting";
+import { Root, GalleryView, Login, Register, Painting } from "./routes";
 import ErrorPage from "./error-page";
 import "./index.css";
 
@@ -19,7 +15,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />} errorElement={<ErrorPage />}>
       <Route errorElement={<ErrorPage />}>
-        <Route index element={<Index />} />
+        <Route index element={<GalleryView />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="paintings/:paintingId" element={<Painting />} />

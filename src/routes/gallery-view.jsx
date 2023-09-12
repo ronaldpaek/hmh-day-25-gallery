@@ -2,7 +2,7 @@ import { Link, useOutletContext } from "react-router-dom";
 
 const extractMuseumName = (creditline) => creditline.split(",")[0];
 
-const Index = () => {
+const GalleryView = () => {
   const { paintings } = useOutletContext();
 
   return (
@@ -35,4 +35,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default GalleryView;
