@@ -1,33 +1,45 @@
-import { Link } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const Navbar = ({ user, setUser }) => {
+  const navigate = useNavigate();
+
   const handleLogoutUser = () => {
     setUser({});
+    navigate("/");
   };
 
   return (
     <nav className="navbar">
       <ul className="navbar-list">
         <li className="navbar-item">
-          <Link to="/" className="navbar-link">
+          <NavLink to="/" exact className="navbar-link" activeClassName>
             Home
-          </Link>
+          </NavLink>
         </li>
         <li className="navbar-item">
           {user.username ? (
             `Welcome ${user.username}`
           ) : (
-            <Link to="/login">Login</Link>
+            <NavLink to="/login" exact className="navbar-link" activeClassName>
+              Login
+            </NavLink>
           )}
         </li>
         <li className="navbar-item">
           {user.username ? (
-            <Link to="/" onClick={handleLogoutUser}>
+            <button onClick={handleLogoutUser} className="navbar-button">
               Logout
-            </Link>
+            </button>
           ) : (
-            <Link to="/register">Register</Link>
+            <NavLink
+              to="/register"
+              exact
+              className="navbar-link"
+              activeClassName
+            >
+              Register
+            </NavLink>
           )}
         </li>
       </ul>

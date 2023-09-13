@@ -90,11 +90,31 @@ h6 {
   padding: 0;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   padding-block: 10px;
+  height: 54px;
 }
 
 .navbar-link {
   padding: 5px;
+  text-decoration: none;
+  color: black;
+}
+
+.navbar-link:visited {
+  color: black;
+}
+
+.navbar-link.active {
+  color: darkblue;
+  font-weight: 700;
+}
+
+.navbar-button {
+  border: 0;
+  background-color: transparent;
+  padding: 5px;
+  cursor: pointer;
 }
 
 .gallery-container {
