@@ -1,6 +1,5 @@
-import { API } from "../constants";
-
-export const extractMuseumName = (creditline) => creditline.split(",")[0];
+const API =
+  "https://raw.githubusercontent.com/maxdhs/harvard-art-api/main/main.json";
 
 export const fetchPaintings = async () => {
   try {
@@ -19,3 +18,5 @@ export const fetchPaintings = async () => {
     console.error(error);
   }
 };
+
+export const extractMuseumName = (creditline) => creditline.split(",")[0];

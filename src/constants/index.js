@@ -1,6 +1,3 @@
-export const API =
-  "https://raw.githubusercontent.com/maxdhs/harvard-art-api/main/main.json";
-
 export const DEFAULT_USER = { id: 1, username: "Ronald Paek" };
 
 export const artworkDetails = [

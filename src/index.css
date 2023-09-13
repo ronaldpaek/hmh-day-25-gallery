@@ -155,9 +155,10 @@ h6 {
   color: white;
   display: flex;
   flex-direction: column;
-  > * + * {
-    border-top: 1px solid white;
-  }
+}
+
+.painting-details > * + * {
+  border-top: 1px solid white;
 }
 
 .detail-item {
@@ -165,18 +166,14 @@ h6 {
   grid-template-columns: 1fr 2fr;
 }
 
-.register-page {
+.auth-page {
   display: flex;
   justify-content: center;
   margin-block: auto;
 }
 
-.register-title {
+.auth-title {
   text-align: center;
-}
-
-.register-group {
-  width: 90%;
 }
 
 fieldset {
@@ -200,7 +197,7 @@ fieldset {
   border: 0;
 }
 
-.register-form {
+.auth-form {
   display: flex;
   flex-direction: column;
   max-width: 300px;

@@ -14,10 +14,10 @@ const Register = () => {
   };
 
   return (
-    <main className="register-page">
-      <form className="register-form" onSubmit={handleRegister}>
-        <h1 className="register-title">Register</h1>
-        <fieldset className="register-fieldset">
+    <main className="auth-page">
+      <form className="auth-form" onSubmit={handleRegister}>
+        <h1 className="auth-title">Register</h1>
+        <fieldset className="auth-fieldset">
           <label htmlFor="username" className="sr-only">
             Username
           </label>
@@ -43,7 +43,7 @@ const Register = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </fieldset>
-        <button type="submit" className="register-button">
+        <button type="submit" className="submit-button">
           Register
         </button>
       </form>
