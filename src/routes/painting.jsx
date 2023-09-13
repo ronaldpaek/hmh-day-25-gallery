@@ -11,25 +11,23 @@ const Painting = () => {
 
   return (
     <main className="painting-container">
-      <>
-        <h1 className="painting-title">{painting.title}</h1>
-        <img
-          src={painting.primaryimageurl}
-          alt={painting.title}
-          className="painting-image"
-        />
-        <dl className="painting-details">
-          {artworkDetails.map(
-            (detail) =>
-              painting[detail] && (
-                <div key={detail} className="detail-item">
-                  <dt className="detail-term">{detail}</dt>
-                  <dd className="detail-description">{painting[detail]}</dd>
-                </div>
-              )
-          )}
-        </dl>
-      </>
+      <h1 className="painting-title">{painting.title}</h1>
+      <img
+        src={painting.primaryimageurl}
+        alt={painting.title}
+        className="painting-image"
+      />
+      <dl className="painting-details">
+        {artworkDetails.map(
+          (detail) =>
+            painting[detail] && (
+              <div key={detail} className="detail-item">
+                <dt className="detail-term">{detail}</dt>
+                <dd className="detail-description">{painting[detail]}</dd>
+              </div>
+            )
+        )}
+      </dl>
     </main>
   );
 };
