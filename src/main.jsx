@@ -9,11 +9,18 @@ import {
 
 import { Root, GalleryView, Login, Register, Painting } from "./routes";
 import ErrorPage from "./error-page";
+import { fetchPaintings } from "./utils";
 import "./index.css";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Root />} errorElement={<ErrorPage />}>
+    <Route
+      path="/"
+      loader={() => fetchPaintings()}
+      element={<Root />}
+      errorElement={<ErrorPage />}
+      id="root"
+    >
       <Route errorElement={<ErrorPage />}>
         <Route index element={<GalleryView />} />
         <Route path="login" element={<Login />} />
