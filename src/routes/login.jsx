@@ -16,7 +16,7 @@ const Login = () => {
   return (
     <main className="register-page">
       <form className="register-form" onSubmit={handleLogin}>
-        <h1 className="register-title">Register</h1>
+        <h1 className="register-title">Login</h1>
         <fieldset className="register-fieldset">
           <label htmlFor="username" className="sr-only">
             Username
