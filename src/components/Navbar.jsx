@@ -13,7 +13,7 @@ const Navbar = ({ user, setUser }) => {
     <nav className="navbar">
       <ul className="navbar-list">
         <li className="navbar-item">
-          <NavLink to="/" exact className="navbar-link" activeClassName>
+          <NavLink to="/" className="navbar-link">
             Home
           </NavLink>
         </li>
@@ -21,7 +21,7 @@ const Navbar = ({ user, setUser }) => {
           {user.username ? (
             `Welcome ${user.username}`
           ) : (
-            <NavLink to="/login" exact className="navbar-link" activeClassName>
+            <NavLink to="/login" className="navbar-link">
               Login
             </NavLink>
           )}
@@ -32,12 +32,7 @@ const Navbar = ({ user, setUser }) => {
               Logout
             </button>
           ) : (
-            <NavLink
-              to="/register"
-              exact
-              className="navbar-link"
-              activeClassName
-            >
+            <NavLink to="/register" className="navbar-link">
               Register
             </NavLink>
           )}
